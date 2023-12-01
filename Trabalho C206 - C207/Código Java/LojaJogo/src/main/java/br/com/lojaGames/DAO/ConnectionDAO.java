@@ -14,7 +14,7 @@ public abstract class ConnectionDAO
     //parâmetros de conexão com o banco de dados
     String database = "lojaGames";
     String user = "root";
-    String password = "root";
+    String password = "Mysql.123";
     String url = "jdbc:mysql://localhost:3306/" + database + "?useTimezone=true&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true";
 
     //método para estabelecer uma conexão com o banco de dados

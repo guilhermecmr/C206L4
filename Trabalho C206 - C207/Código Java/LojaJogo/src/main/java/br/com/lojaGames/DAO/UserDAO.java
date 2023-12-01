@@ -720,11 +720,18 @@ public class UserDAO extends ConnectionDAO
                 System.out.println("Erro: " + e.getMessage());
             }
         }
-        return clientes.get(0);
+
+        try
+        {
+            return clientes.get(0);
+        }
+        catch(IndexOutOfBoundsException e)
+        {
+            return null;
+        }
     }
 
-    public Vendedor selectVendedor(int id)
-    {
+    public Vendedor selectVendedor(int id) {
         ArrayList<Vendedor> vendedores = new ArrayList<>();
         connectToDB();
         String sql = "SELECT * FROM Vendedor where id = " + id;
@@ -735,19 +742,15 @@ public class UserDAO extends ConnectionDAO
 
             while (rs.next()) {
 
-                Vendedor vendedorAux = new Vendedor(rs.getString("nome"),rs.getInt("id"), rs.getFloat("bonus"));
+                Vendedor vendedorAux = new Vendedor(rs.getString("nome"), rs.getInt("id"), rs.getFloat("bonus"));
 
                 vendedores.add(vendedorAux);
             }
             sucesso = true;
-        }
-
-        catch (SQLException e) {
+        } catch (SQLException e) {
             System.out.println("Erro: " + e.getMessage());
             sucesso = false;
-        }
-
-        finally {
+        } finally {
             try {
                 con.close();
                 st.close();
@@ -755,6 +758,15 @@ public class UserDAO extends ConnectionDAO
                 System.out.println("Erro: " + e.getMessage());
             }
         }
-        return vendedores.get(0);
+
+        try
+        {
+            return vendedores.get(0);
+        }
+
+        catch(IndexOutOfBoundsException e)
+        {
+            return null;
+        }
     }
 }

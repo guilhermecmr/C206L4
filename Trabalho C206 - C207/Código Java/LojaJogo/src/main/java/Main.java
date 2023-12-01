@@ -129,7 +129,7 @@ public class Main
 
         if (cliente == null)
         {
-            System.out.println("Erro! Cliente não encontrado. Venda cancelada!");
+            System.out.println("\nErro! Cliente não encontrado. Venda cancelada!");
             return;
         }
 
@@ -141,7 +141,7 @@ public class Main
 
         if (vendedor == null)
         {
-            System.out.println("Erro! O vendedor associado ao cliente não foi encontrado. Venda cancelada!");
+            System.out.println("\nErro! O vendedor associado ao cliente não foi encontrado. Venda cancelada!");
             return;
         }
 
